@@ -177,7 +177,10 @@ void SongLyricViewModel::loadSongLyric(SongId songId) {
             return;
         }
         auto totallyric = result.unwrap();
-        // qDebug()<<totallyric.translation.lyric;
+        if(totallyric.translation.has_value()){
+            qDebug()<<totallyric.translation.value().lyric;
+        }
+
         // qDebug()<<totallyric.karaoke.lyric;
         // qDebug()<<totallyric.Romaji.lyric;
         // qDebug()<<totallyric.trivial.lyric;
